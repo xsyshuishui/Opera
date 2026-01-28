@@ -1,0 +1,57 @@
+# Chain Project - CUDA Environment Dependencies
+#
+# Installation:
+#   1. Create conda environment: conda create -n tool python=3.10 -y
+#   2. Activate: conda activate tool
+#   3. Install PyTorch CUDA (choose one based on your CUDA version):
+#      - CUDA 11.8: pip install torch==2.1.0 torchvision==0.16.0 --index-url https://download.pytorch.org/whl/cu118
+#      - CUDA 12.1: pip install torch==2.1.0 torchvision==0.16.0 --index-url https://download.pytorch.org/whl/cu121
+#   4. Install other deps: pip install -r requirements_cuda.txt
+
+# ============================================================
+# Core Deep Learning Dependencies
+# ============================================================
+pyiqa==0.1.14.1
+timm==1.0.22
+einops==0.8.1
+basicsr==1.4.2
+
+# ============================================================
+# Image Processing
+# ============================================================
+opencv-python-headless==4.10.0.84  # Use headless version for server environments
+pillow>=10.0.0
+scikit-image>=0.21.0
+scipy>=1.11.0
+
+# ============================================================
+# Visualization & Logging
+# ============================================================
+matplotlib>=3.7.0
+tensorboard>=2.14.0
+tqdm>=4.65.0
+
+# ============================================================
+# Web API (for inference server)
+# ============================================================
+flask>=3.0.0
+requests>=2.31.0
+
+# ============================================================
+# Utilities
+# ============================================================
+numpy>=1.24.0,<2.0  # PyTorch 2.1.0 requires NumPy 1.x
+addict>=2.4.0       # Required by basicsr
+lmdb>=1.4.0         # Required by basicsr
+pyyaml>=6.0         # Required by basicsr/pyiqa
+
+# ============================================================
+# Hugging Face (for model downloads)
+# ============================================================
+huggingface_hub>=0.20.0
+
+# ============================================================
+# VLM Plan Generation (for get_plan.py)
+# ============================================================
+openai>=1.0.0       # OpenAI-compatible API client for VLM
+datasets>=2.14.0    # HuggingFace datasets
